@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài tập 4 - a</title>
+</head>
+
+<body>
+    <script>
+        //1. Khai báo mảng 1 chiều
+        let arrInt = [];
+        do {
+            let value = prompt("Nhập vào một giá trị:");
+            if (value == "" || isNaN(value) || value == null) {
+                //kết thúc nhập
+                break;
+            } else {
+                //Thêm giá trị vào mảng arrInt
+                arrInt.push(+value);
+            }
+        } while (true);
+        console.log("Mảng sau khi nhập:", arrInt);
+
+    </script>
+</body>
+
+</html>

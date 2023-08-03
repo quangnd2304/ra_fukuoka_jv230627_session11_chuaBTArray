@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài tập 1 - G</title>
+</head>
+
+<body>
+    <script>
+        //B1. Khai báo mảng số nguyên - literal
+        let arrInt = [];
+        //B2. Nhập 5 giá trị cho mảng
+        for (let index = 0; index < 5; index++) {
+            //thêm phần tử vào cuối mảng
+            arrInt.push(+prompt("Nhập phần tử thứ " + (index + 1)));
+        }
+        //B3. In mảng sau khi nhập
+        console.log("Mảng sau khi nhập:", arrInt);
+        //B4. Sắp xếp
+        //4.1. Sắp xếp với sort - DESC
+        arrInt.sort((a, b) => b - a);
+        console.log("Mảng sau khi sắp xếp với sort:", arrInt);
+        //4,2. Sắp xếp với thuật toán Insertion sort - ASC
+        for (let i = 0; i < arrInt.length - 1; i++) {
+            //So sánh phần tử arrInt[i] với các phần tử đứng sau
+            for (let j = i + 1; j < arrInt.length; j++) {
+                //Sắp xếp tăng dần: phần tử trước có giá trị nhỏ hơn phần tử sau
+                //Nếu phần tử trước (i) có giá trị lớn phần sau(j)-> đổi chỗ 2 phần tử i và j
+                if (arrInt[i] > arrInt[j]) {
+                    let temp = arrInt[i];
+                    arrInt[i] = arrInt[j];
+                    arrInt[j] = temp;
+                }
+            }
+        }
+        console.log("Mảng sau khi sắp xếp tăng dần:", arrInt);
+
+        /*
+        Bài tập ứng dụng:
+        Khai báo và nhập giá trị cho một mảng kiểu number gồm 5 phần tử
+        Sử dụng thuật toán insertion sort sắp xếp mảng giảm dần
+        B1: Khai báo mảng
+        B2: Nhập 5 giá trị mảng
+        B3: In mảng sau khi nhập
+        B4: Sắp xếp giảm dần theo insertion
+            4.1. Vòng i 0->arr.length-1
+            4.2. Vòng j (i+1)->arr.length
+            4.3. Nếu arr[i]<arr[j]-> đổi chỗ 2 phần tử        
+        */
+
+    </script>
+</body>
+
+</html>

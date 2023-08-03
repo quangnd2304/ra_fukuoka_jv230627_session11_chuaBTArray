@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài tập 2</title>
+</head>
+
+<body>
+    <script>
+        //1. Khai báo mảng 2 chiều
+        let arrInt = [];
+        //2. Nhập giá trị các phần tử -> dùng 2 vòng lặp lồng nhau (4*4)
+        //-Duyệt theo dòng
+        for (let i = 0; i < 4; i++) {
+            //-Duyệt theo cột (trên dòng)
+            //Khởi tạo mảng 1 chiều (dòng) để lưu giá trị nhập từ bàn phím
+            let arrRow = [];
+            for (let j = 0; j < 4; j++) {
+                //Nhập giá trị các phần tử tại dòng i
+                arrRow.push(+prompt("Nhập phần tử thứ " + (j + 1) + " trên dòng thứ " + (i + 1)));
+            }
+            //add dòng i (arrRow) vào mảng arrInt
+            arrInt.push(arrRow);
+        }
+        //3. In giá trị các phần tử - theo ma trận
+        console.log("Mảng vừa nhập:", arrInt);
+        // for (let i = 0; i < arrInt.length; i++) {
+        //     for (let j = 0; j < arrInt[i].length; j++) {
+        //         document.write(arrInt[i][j] + " ");
+        //     }
+        //     document.write("<br>");
+        // }
+        //4. In giá trị phần tử trên đường biên
+        console.log("Các giá trị nằm trên đường biên:");
+        for (let i = 0; i < arrInt.length; i++) {
+            for (let j = 0; j < arrInt[i].length; j++) {
+                if (i == 0 || j == 0 || i == arrInt.length - 1 || j == arrInt[i].length - 1) {
+                    console.log(arrInt[i][j]);
+                }
+            }
+        }
+        //5. In giá trị các phần tử trên chéo chính và phụ
+        if (arrInt.length == arrInt[0].length) {
+            //Số dòng == số cột -> ma trận vuông
+            console.log("Các phần tử nằm trên đường chéo chính:");
+            for (let i = 0; i < arrInt.length; i++) {
+                for (let j = 0; j < arrInt[i].length; j++) {
+                    if (i == j) {
+                        console.log(arrInt[i][j]);
+                    }
+                }
+            }
+            console.log("Các phần tử nằm trên đường chéo phụ:");
+            for (let i = 0; i < arrInt.length; i++) {
+                for (let j = 0; j < arrInt[i].length; j++) {
+                    if (i + j == arrInt.length - 1) {
+                        console.log(arrInt[i][j]);
+                    }
+                }
+            }
+        }
+        //6. Sắp xếp mảng tăng dần theo dòng
+        //Duyệt từng dòng để sắp xếp tăng dần
+        for (let i = 0; i < arrInt.length; i++) {
+            //Duyệt dòng i - duyệt mảng 1 chiều arrInt[i] - sắp xếp mảng 1 chiều arrInt[i]
+            // arrInt[i].sort((a, b) => a - b); //Dùng sort
+            for (let j = 0; j < arrInt[i].length - 1; j++) {
+                for (let k = j + 1; k < arrInt[i].length; k++) {
+                    if (arrInt[i][j] > arrInt[i][k]) {
+                        let temp = arrInt[i][j];
+                        arrInt[i][j] = arrInt[i][k];
+                        arrInt[i][k] = temp;
+                    }
+                }
+            }
+        }
+        console.log("Mảng sau khi sắp xếp các dòng tăng dần:", arrInt);
+    </script>
+</body>
+
+</html>
